@@ -136,3 +136,9 @@ def idKeyToCurrentTransforms(name):
         object.location = loc
         object.rotation_euler = rot
         object.scale = scale
+
+@makeOperator("an.id_key_from_object_input", "From Current Transforms",
+              arguments=["String"],
+              description="Assign transform ID Key based on current loc/rot/scale")
+def idKeyFromCurrentTransforms(object):
+    object.id_keys.set("Transforms", "Initial Transforms", (object.location, object.rotation_euler, object.scale))
